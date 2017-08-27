@@ -1,0 +1,78 @@
+<!-- <div class="loginContainer">
+
+    <form name="carForm" #carForm="ngForm">
+
+        <label>User Name :</label>
+            <input type="text" value="Sameer" name="username" [(ngModel)]="username"  id="username" />
+        <label>Password :</label>
+        <input type="password" value="sameer123" name="password" [(ngModel)]="password"  id="password" />
+        <input type="button" value="Login" id="submit" (click)="validate();"/>
+        <div *ngIf="successMessage" [ngClass] = "'success'"> Login Successful </div>
+        <div *ngIf="errorMessage" [ngClass] = "'error'"> Login Failed </div>
+
+    </form>
+
+</	div> -->
+
+<div class="container">
+<div id="fullscreen_bg" class="fullscreen_bg">
+   <form class="form-signin">
+       <div class="row">
+           <div class="col-*-6">
+               <div class="jumbotron text-center" style="background: transparent; color: whitesmoke">
+                   <h1>Auto Tuner</h1>
+                   <p class="glyphicon-text-color" style="font-weight: bold;">Where Customer Meets Customizer !</p>
+               </div>
+           </div>
+       </div>
+       <h2 class="form-signin-heading text-muted" style="color: whitesmoke">Login</h2>
+
+       <!--<input type="text" class="form-control" placeholder="User Name" id="User Name" required minlength="3" maxlength="10" [(ngModel)]="username" required="" name="username" #username="ngModel" autofocus="">
+                   <div *ngIf="username.errors && (username.dirty || username.touched)" class="alert alert-danger">
+           <div [hidden]="!username.errors.required">
+             username is required!
+           </div>
+           <div [hidden]="!username.errors.minlength">
+             username must be at least 3 characters long.
+           </div>
+           <div [hidden]="!username.errors.maxlength">
+             username cannot be more than 10 characters long.
+           </div>
+         </div>-->
+
+
+
+        <input type="text" class="form-control" placeholder="User Name" [(ngModel)]="username" name="username" required="" autofocus="">
+
+       <!--<input type="password" class="form-control" placeholder="Password" id="Password" required minlength="8" maxlength="12"[(ngModel)]="password" required="" name="password" #password="ngModel" autofocus="">
+           <div *ngIf="password.errors && (password.dirty || passwordtouched)" class="alert alert-danger">
+             <div [hidden]="!password.errors.required">
+               password is required!
+             </div>
+             <div [hidden]="!password.errors.minlength">
+               password must be at least 8 characters long.
+             </div>
+             <div [hidden]="!username.errors.maxlength">
+               password cannot be more than 12 characters long.
+             </div>
+           </div>-->
+
+
+
+
+
+
+
+        <input type="password" class="form-control" placeholder="Password" [(ngModel)]="password" name="password" required="">
+        <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="validate();">
+            Login
+        </button>
+    </form>
+     <div *ngIf="successMessage" [ngClass] = "'success'"> Login Successful </div>
+     <div *ngIf="errorMessage" [ngClass] = "'error'"> Login Failed </div>
+</div>
+
+
+</div>
+
+

@@ -1,0 +1,41 @@
+<div class="reportForm">
+    <form name="reportForm" #reportForm="ngForm">
+        <div *ngIf="successMessage" [ngClass]="'success'">Success</div>
+        <div *ngIf="errorMessage" [ngClass]="'error'"> {{errorMessage}}</div>
+        <h1>{{title}}</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Accessory</th>
+            <th>Customizer</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let taskDetail of taskDetails ">
+            <td>{{taskDetail.taskName}}</td>
+            <td>{{taskDetail.cId}}</td>
+            <td>{{taskDetail.price}}</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td>Total</td>
+            <td>{{totalPrice}}</td>
+        </tr>
+        </tfoot>
+    </table>
+    </form>
+</div>
+
+<!--<tbody>-->
+<!--<tr *ngFor="let customer of customers ">-->
+    <!--<td>{{customer.name}}</td>-->
+<!--<tbody>-->
+<!--<tr *ngFor="let car of customer.cars ">-->
+    <!--<td> {{car.make}}</td>-->
+    <!--<td>{{car.model}}</td>-->
+    <!--<td><img width="300" height="300" src="images/{{car.make}}-{{car.model}}.png"/></td>-->
+    <!--<input type="radio" name="mycar" [(ngModel)]='selectedCar' (click)="status(car);" (select)="status(car);">-->
+<!--</tr>-->
+<!--</tbody>-->

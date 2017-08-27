@@ -1,0 +1,32 @@
+<div>
+    <input type="button" value="LogOut" (click)="logout();"/>
+    <table class="customizerList">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>CID</th>
+            <th>Category</th>
+            <th>Rating</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let customizer of customizers ">
+            <td>{{customizer.name}}</td>
+            <td>{{customizer.cId}}</td>
+            <td>{{customizer.category}}</td>
+            <td>{{customizer.rating}}</td>
+            <td><img width="100" height="100" src="images/{{customizer.name}}.png"/></td>
+            <input type="radio" name="mycustomizer" [(ngModel)]='selectedCustomizer' (click)="status(customizer);"/>
+        </tr>
+        </tbody>
+        <b *ngIf="selectedCustomizer">{{selectedCustomizer}} has been selected for customization</b>
+        <!--<input type="radio" name="mycar" [(ngModel)] = 'selectedCar' (click)="status(car);">-->
+        <!--<td>{{car.year}}</td>-->
+        <!--<td><img width="100" height="100" [src]="imageUrl+car.make+'-'+car.model"></td>-->
+
+
+    </table>
+    <form>
+        <input type='button' value='Confirm'/>
+    </form>
+</div>

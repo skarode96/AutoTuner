@@ -1,0 +1,90 @@
+<div class="accessoriesForm">
+    <form name="accessoriesForm" #accessoriesForm="ngForm">
+        <div *ngIf="successMessage" [ngClass]="'success'"> {{accessories.vin}} Added.</div>
+        <div *ngIf="errorMessage" [ngClass]="'error'"> {{errorMessage}}</div>
+        <h1>{{title}}</h1>
+        <img width="300" height="300" src="images/{{car.make}}-{{car.model}}.png"/><br>
+        <label>Accessories Details : </label><br>
+        <!--<input class="accessories" type="checkbox" [(ngModel)]="accessories.vin" id="vin" name="vin" #vin = 126 >126-->
+
+        <input class="accessories" name="tyres" [(ngModel)]='accessories.tyres' type="checkbox" id="tyres" #tyres = "ngModel" (click)="customize('Tyres');">Tyres
+        <select class="dropdown" *ngIf="flag == 1" name="selectedCustomizer" [(ngModel)]="selectedCustomizer" (ngModelChange)="onChange([selectedCustomizer,'Tyres',car.vin])">
+                    <option *ngFor="let customizer of accessoryCustomizers" value= [{{customizer.cId}},{{customizer.name}},{{customizer.price}}]>
+                      <div  *ngIf="flag == 1" >  {{customizer.name}} Rating : {{customizer.rating}} Cost:{{customizer.price}}</div>
+
+                    </option>
+                </select>
+        <!--<h5 *ngIf="flag == 1">You selected: {{this.artist}}</h5><br>-->
+        <img *ngIf="flag == 1" width="100" height="100" src="images/{{this.artist}}.png"/><br>
+
+        <input class="accessories" name="paintjob" [(ngModel)]='accessories.paintJob' type="checkbox" id="paint" #paintJob = "ngModel" (click)="customize('Paint Job');">Paint Job
+        <select class="dropdown" *ngIf="flag == 2" name="selectedCustomizer" [(ngModel)]="selectedCustomizer"(ngModelChange)="onChange([selectedCustomizer,'Paint Job',car.vin])"> 
+                    <option *ngFor="let customizer of accessoryCustomizers" value= [{{customizer.cId}},{{customizer.name}},{{customizer.price}}]>
+                      <div  *ngIf="flag == 2" >  {{customizer.name}} Rating : {{customizer.rating}} Cost:{{customizer.price}}</div>
+             
+                    </option>
+                </select>
+        <!--<h5 *ngIf="flag1==1">You selected: {{this.artist}}</h5><br>-->
+        <img *ngIf="flag==2" width="100" height="100" src="images/{{this.artist}}.png"/><br>
+
+        <input class="accessories" name="engine" [(ngModel)]='accessories.engine' type="checkbox" id="engine" #engine = "ngModel" (click)="customize('Engine');">Engine
+        <select class="dropdown" *ngIf="flag == 3" name="selectedCustomizer" [(ngModel)]="selectedCustomizer"(ngModelChange)="onChange([selectedCustomizer,'Engine',car.vin])">
+                    <option *ngFor="let customizer of accessoryCustomizers" value= [{{customizer.cId}},{{customizer.name}},{{customizer.price}}]>
+                      <div  *ngIf="flag == 3" >  {{customizer.name}} Rating : {{customizer.rating}} Cost:{{customizer.price}}</div>
+             
+                    </option>
+                </select>
+        <!--<h5 *ngIf="flag1==1">You selected: {{this.artist}}</h5><br>-->
+        <img *ngIf="flag==3" width="100" height="100" src="images/{{this.artist}}.png"/><br>
+
+
+        <input class="accessories" name="music" [(ngModel)]='accessories.music' type="checkbox" id="music" #music = "ngModel" (click)="customize('Music');">Music
+        <select class="dropdown" *ngIf="flag == 4" name="selectedCustomizer" [(ngModel)]="selectedCustomizer"(ngModelChange)="onChange([selectedCustomizer,'Music',car.vin])">
+                    <option *ngFor="let customizer of accessoryCustomizers" value= [{{customizer.cId}},{{customizer.name}},{{customizer.price}}]>
+                      <div  *ngIf="flag == 4" >  {{customizer.name}} Rating : {{customizer.rating}} Cost:{{customizer.price}}</div>
+             
+                    </option>
+                </select>
+        <!--<h5 *ngIf="flag1==1">You selected: {{selectedCustomizer}}</h5><br>-->
+        <img *ngIf="flag==4" width="100" height="100" src="images/{{this.artist}}.png"/><br>
+
+        <input class="accessories" name="brakes" [(ngModel)]='accessories.brakes' type="checkbox" id="brakes" #brakes = "ngModel" (click)="customize('Brakes');">Brakes
+        <select class="dropdown" *ngIf="flag == 5" name="selectedCustomizer" [(ngModel)]="selectedCustomizer"(ngModelChange)="onChange([selectedCustomizer,'Brakes',car.vin])">
+                    <option *ngFor="let customizer of accessoryCustomizers" value= [{{customizer.cId}},{{customizer.name}},{{customizer.price}}]>
+                      <div  *ngIf="flag == 5" >  {{customizer.name}} Rating : {{customizer.rating}} Cost:{{customizer.price}}</div>
+             
+                    </option>
+                </select>
+        <!--<h5 *ngIf="flag==5">You selected: {{selectedCustomizer}}</h5><br>-->
+        <img *ngIf="flag==5" width="100" height="100" src="images/{{this.artist}}.png"/><br>
+
+        <input class="accessories" name="headlights" [(ngModel)]='accessories.headlights' type="checkbox" id="headlights" #headlights = "ngModel" (click)="customize('HeadLights');">Headlights
+        <select class="dropdown" *ngIf="flag == 6" name="selectedCustomizer" [(ngModel)]="selectedCustomizer"(ngModelChange)="onChange([selectedCustomizer,'HeadLights',car.vin])">
+                    <option *ngFor="let customizer of accessoryCustomizers" value= [{{customizer.cId}},{{customizer.name}},{{customizer.price}}]>
+                      <div  *ngIf="flag == 6" >  {{customizer.name}} Rating : {{customizer.rating}} Cost:{{customizer.price}}</div>
+                    </option>
+                </select>
+        <!--<h5 *ngIf="flag==6">You selected: {{selectedCustomizer}}</h5><br>-->
+        <img *ngIf="flag==6" width="100" height="100" src="images/{{this.artist}}.png"/><br>
+
+        <input class="accessories" name="wheels" [(ngModel)]='accessories.wheels' type="checkbox" id="wheels" #wheels = "ngModel" (click)="customize('Wheels');">Wheels
+        <select *ngIf="flag == 7" name="selectedCustomizer" [(ngModel)]="selectedCustomizer"(ngModelChange)="onChange([selectedCustomizer,'Wheels',car.vin])">
+                    <option *ngFor="let customizer of accessoryCustomizers" value= [{{customizer.cId}},{{customizer.name}},{{customizer.price}}]>
+                      <div  *ngIf="flag == 7" >  {{customizer.name}} Rating : {{customizer.rating}} Cost:{{customizer.price}}</div>
+                    </option>
+                </select>
+        <!--<h5 *ngIf="flag==7">You selected: {{selectedCustomizer}}</h5><br>-->
+        <img *ngIf="flag==7" width="100" height="100" src="images/{{this.artist}}.png"/><br>
+
+        <input class="accessories" name="sideMirrors" [(ngModel)]='accessories.sideMirrors' type="checkbox" id="sideMirrors" #sideMirrors = "ngModel" (click)="customize('SideMirrors');">SideMirrors
+        <select *ngIf="flag == 8" name="selectedCustomizer" [(ngModel)]="selectedCustomizer"(ngModelChange)="onChange([selectedCustomizer,'SideMirrors',car.vin])">
+                    <option *ngFor="let customizer of accessoryCustomizers" value= [{{customizer.cId}},{{customizer.name}},{{customizer.price}}]>
+                      <div  *ngIf="flag == 8" >  {{customizer.name}} Rating : {{customizer.rating}} Cost:{{customizer.price}}</div>
+                    </option>
+                </select>
+        <!--<h5 *ngIf="flag==8">You selected: {{selectedCustomizer}}</h5><br>-->
+        <img *ngIf="flag==8" width="100" height="100" src="images/{{this.artist}}.png"/><br>
+        <button class="btn btn-lg btn-primary btn-block" style="width: 10%" type="submit" (click)='goToReport();'>Add
+        </button>
+    </form>
+</div>
